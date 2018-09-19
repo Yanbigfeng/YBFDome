@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="startTime" Type="datetime" />
+          <Property Name="endTime" Type="datetime" />
+          <Property Name="addTime" Type="datetime" />
+          <Property Name="tableName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="age" Type="int" />
+          <Property Name="introduce" Type="varchar" MaxLength="50" />
+          <Property Name="addTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Table_2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="age" Type="int" />
+          <Property Name="introduce" Type="varchar" MaxLength="50" />
+          <Property Name="addTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TableTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="introduce" Type="varchar" MaxLength="50" />
+          <Property Name="describe" Type="varchar" MaxLength="50" />
+          <Property Name="addTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TicketTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="ticketName" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="remark" Type="varchar" MaxLength="50" />
+          <Property Name="seatNub" Type="varchar" MaxLength="50" />
+          <Property Name="totalNub" Type="int" />
+          <Property Name="addTime" Type="datetime" />
+          <Property Name="versionNum" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="TimeRecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="childId" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="state" Type="int" />
+          <Property Name="stateTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="testModelStoreContainer">
+          <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_2" EntityType="Self.Table_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableTest" EntityType="Self.TableTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketTest" EntityType="Self.TicketTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeRecord" EntityType="Self.TimeRecord" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="startTime" Type="DateTime" Precision="3" />
+          <Property Name="endTime" Type="DateTime" Precision="3" />
+          <Property Name="addTime" Type="DateTime" Precision="3" />
+          <Property Name="tableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="introduce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Table_2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="introduce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TableTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="introduce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="describe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TicketTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ticketName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="seatNub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="totalNub" Type="Int32" />
+          <Property Name="addTime" Type="DateTime" Precision="3" />
+          <Property Name="versionNum" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="TimeRecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="childId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="stateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Route" EntityType="Self.Route" />
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" />
+          <EntitySet Name="Table_2" EntityType="Self.Table_2" />
+          <EntitySet Name="TableTest" EntityType="Self.TableTest" />
+          <EntitySet Name="TicketTest" EntityType="Self.TicketTest" />
+          <EntitySet Name="TimeRecord" EntityType="Self.TimeRecord" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
+          <EntitySetMapping Name="Route">
+            <EntityTypeMapping TypeName="testModel.Route">
+              <MappingFragment StoreEntitySet="Route">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="addTime" ColumnName="addTime" />
+                <ScalarProperty Name="tableName" ColumnName="tableName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_1">
+            <EntityTypeMapping TypeName="testModel.Table_1">
+              <MappingFragment StoreEntitySet="Table_1">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="addTime" ColumnName="addTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_2">
+            <EntityTypeMapping TypeName="testModel.Table_2">
+              <MappingFragment StoreEntitySet="Table_2">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="addTime" ColumnName="addTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTest">
+            <EntityTypeMapping TypeName="testModel.TableTest">
+              <MappingFragment StoreEntitySet="TableTest">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="addTime" ColumnName="addTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketTest">
+            <EntityTypeMapping TypeName="testModel.TicketTest">
+              <MappingFragment StoreEntitySet="TicketTest">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ticketName" ColumnName="ticketName" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="seatNub" ColumnName="seatNub" />
+                <ScalarProperty Name="totalNub" ColumnName="totalNub" />
+                <ScalarProperty Name="addTime" ColumnName="addTime" />
+                <ScalarProperty Name="versionNum" ColumnName="versionNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeRecord">
+            <EntityTypeMapping TypeName="testModel.TimeRecord">
+              <MappingFragment StoreEntitySet="TimeRecord">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="childId" ColumnName="childId" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="stateTime" ColumnName="stateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
