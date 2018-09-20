@@ -42,6 +42,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,7 @@
     <Compile Include="ClassKeep\ParalleClass.cs" />
     <Compile Include="ClassKeep\SonClass.cs" />
     <Compile Include="Concurrency\EFLockTest.cs" />
+    <Compile Include="Concurrency\MSMQ.cs" />
     <Compile Include="MethodKeep\method2.cs" />
     <Compile Include="MethodKeep\sqlHelpMethod.cs" />
     <Compile Include="Program.cs" />

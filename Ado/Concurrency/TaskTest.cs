@@ -4,52 +4,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdoHelp
+namespace AdoHelp.Concurrency
 {
     class TaskTest
     {
 
         #region 队列的操作模拟
-        public static void QueueMian()
+        public static async void QueueMian()
         {
             QueueA();
             QueueB();
         }
-        public static async void QueueA()
+        private static async void QueueA()
         {
-            QueueTest queue = new QueueTest();
             var task = Task.Run(() =>
             {
                 for (int i = 0; i < 20; i++)
                 {
-                    queue.IntoData("QueueA" + i);
+                    QueueTest.IntoData("QueueA" + i);
                 }
             });
             await task;
-            Console.WriteLine("QueueAA插入完成,进行输出:");
-
-            while (queue.GetCount() > 0)
-            {
-                queue.OutData();
-            }
+            Console.WriteLine("QueueA插入完成,进行输出:");
         }
 
-        public static async void QueueB()
+        private static async void QueueB()
         {
-            QueueTest queue = new QueueTest();
             var task = Task.Run(() =>
             {
                 for (int i = 0; i < 20; i++)
                 {
-                    queue.IntoData("QueueB" + i);
+                    QueueTest.IntoData("QueueB" + i);
                 }
             });
             await task;
             Console.WriteLine("QueueB插入完成,进行输出:");
 
-            while (queue.GetCount() > 0)
+        }
+
+        public static void QueueC()
+        {
+            Console.WriteLine("Queue插入完成,进行输出:");
+            while (QueueTest.GetCount() > 0)
             {
-                queue.OutData();
+                QueueTest.OutData2();
             }
         }
         #endregion
@@ -64,7 +62,7 @@ namespace AdoHelp
             SQLA();
             SQLB();
         }
-        public static async void SQLA()
+        private static async void SQLA()
         {
             var task = Task.Run(() =>
             {
@@ -83,7 +81,7 @@ namespace AdoHelp
 
         }
 
-        public static async void SQLB()
+        private static async void SQLB()
         {
             var task = Task.Run(() =>
             {
@@ -111,7 +109,7 @@ namespace AdoHelp
             EFA();
             EFB();
         }
-        public static async void EFA()
+        private static async void EFA()
         {
             var task = Task.Run(() =>
             {
@@ -130,7 +128,7 @@ namespace AdoHelp
 
         }
 
-        public static async void EFB()
+        private static async void EFB()
         {
             var task = Task.Run(() =>
             {
@@ -145,6 +143,51 @@ namespace AdoHelp
             });
             await task;
             Console.WriteLine("EFB抢票结束");
+        }
+        #endregion
+
+        #region 消息队列的操作模拟
+        public static void MSMQMian()
+        {
+            MSMQ.Createqueue(".\\Private$\\myQueue");
+            MSMQA();
+            MSMQB();
+            Console.WriteLine("MSMQ结束");
+        }
+        private static async void MSMQA()
+        {
+            var task = Task.Run(() =>
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    MSMQ.SendMessage("MSMQA" + i);
+                }
+            });
+            await task;
+            Console.WriteLine("MSMQA发送完成,进行读取:");
+
+            while (MSMQ.GetMessageCount() > 0)
+            {
+                MSMQ.ReceiveMessage();
+            }
+        }
+
+        private static async void MSMQB()
+        {
+            var task = Task.Run(() =>
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    MSMQ.SendMessage("MSMQB" + i);
+                }
+            });
+            await task;
+            Console.WriteLine("MSMQB发送完成,进行读取:");
+
+            while (MSMQ.GetMessageCount() > 0)
+            {
+                MSMQ.ReceiveMessage();
+            }
         }
         #endregion
 

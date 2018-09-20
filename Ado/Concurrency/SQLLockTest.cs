@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace AdoHelp
+namespace AdoHelp.Concurrency
 {
     public class SQLLockTest
     {

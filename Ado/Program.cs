@@ -6,7 +6,7 @@ using ModelSoure.DataSoure;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-
+using AdoHelp.Concurrency;
 
 namespace AdoHelp
 {
@@ -19,7 +19,9 @@ namespace AdoHelp
             try
             {
                 Stopwatch stopWatch = new Stopwatch();
-
+                TaskTest.QueueMian();
+                Console.ReadLine();
+                TaskTest.QueueC();
                 Console.ReadLine();
             }
             catch (Exception e)

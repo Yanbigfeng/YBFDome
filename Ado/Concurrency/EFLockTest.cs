@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelSoure.DataSoure;
 
-namespace AdoHelp
+namespace AdoHelp.Concurrency
 {
     /// <summary>
     /// EF
